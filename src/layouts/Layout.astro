@@ -1,8 +1,10 @@
 ---
+import { SEO } from "astro-seo"
+
 import "@/styles/global.css"
 
 interface Props {
-  title: string
+  title?: string
 }
 
 const { title } = Astro.props
@@ -10,11 +12,41 @@ const { title } = Astro.props
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <SEO
+      title={title ?? ""}
+      titleTemplate="%s | Mayonaca Labs マヨナカ研究所"
+      titleDefault="Mayonaca Labs"
+      description="Landing page of Mayonaca Labs."
+      canonical="https://mayonacalabs.com"
+      charset="utf-8"
+      openGraph={{
+        basic: {
+          title: "Mayonaca Labs マヨナカ研究所",
+          type: "website",
+          image: "https://mayonacalabs.com/social.png",
+          url: "https://mayonacalabs.com",
+        },
+        optional: {
+          description: "Landing page of Mayonaca Labs.",
+        },
+        image: {
+          alt: "Mayonaca Labs マヨナカ研究所",
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+      }}
+      extend={{
+        link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+        meta: [
+          {
+            name: "viewport",
+            content: "width=device-width, initial-scale=1.0",
+          },
+          { name: "generator", content: Astro.generator },
+        ],
+      }}
+    />
   </head>
   <body class="bg-mayoblue tracking-snug scroll-smooth font-serif text-gray-50">
     <slot />
