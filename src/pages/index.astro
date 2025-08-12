@@ -1,7 +1,99 @@
 ---
+import { Image } from "astro:assets"
+import logoFull from "@/assets/logo_full.svg"
 import Layout from "@/layouts/Layout.astro"
+import { CircleChevronDownIcon } from "@lucide/astro"
+import {
+  Github as GithubIcon,
+  Instagram as InstagramIcon,
+  X as XIcon,
+} from "simple-icons-astro"
+
+const year = new Date().getFullYear()
 ---
 
 <Layout title="Mayonaca Labs">
-  <h1>Hello, world!</h1>
+  <div
+    class="relative min-h-dvh bg-[url(/background.svg)] bg-bottom bg-no-repeat md:bg-right-bottom"
+  >
+    <div class="absolute right-0 bottom-0 left-0 -z-1 h-16 bg-gray-950"></div>
+
+    <div class="container mx-auto flex min-h-dvh flex-col items-baseline px-3">
+      <Image
+        src={logoFull}
+        alt="Mayonaca Labs マヨナカ研究所"
+        class="max-w-full pt-8 md:pt-15"
+        loading="eager"
+      />
+
+      <p class="mt-6 flex-1 text-balance md:mt-3">
+        Where the world fades in the calm and comfy midnight,
+        <br class="hidden md:block" />
+        ideas emerge and shine under the moonlight.
+      </p>
+
+      <div class="mt-auto flex w-full items-center justify-center py-3">
+        <a
+          href="#"
+          class="transition-transform hover:translate-y-1"
+          aria-label="Scroll down"
+          onclick="document.querySelector('#links').scrollIntoView({
+            block: 'start',
+            inline: 'nearest',
+            behavior: 'smooth',
+          })"
+        >
+          <CircleChevronDownIcon class="size-8 text-gray-50" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex min-h-dvh flex-col items-center">
+    <div class="container mx-auto px-3">
+      <h2 id="links" class="pt-13 text-center text-4xl font-medium uppercase">
+        Links
+      </h2>
+    </div>
+
+    <div
+      class="flex flex-1 flex-col items-center justify-center gap-4 md:gap-6"
+    >
+      <a
+        href="//github.com/mayonacalabs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="relative flex h-13 w-75 items-center justify-center bg-gray-50 p-4 text-2xl text-gray-950 shadow-md transition-transform hover:translate-x-1 hover:translate-y-1"
+      >
+        <GithubIcon class="absolute top-1/2 left-4 size-6 -translate-y-1/2" />
+        Github
+      </a>
+      <a
+        href="//instagram.com/mayonacalabs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="relative flex h-13 w-75 items-center justify-center bg-gray-50 p-4 text-2xl text-gray-950 shadow-md transition-transform hover:translate-x-1 hover:translate-y-1"
+      >
+        <InstagramIcon
+          class="absolute top-1/2 left-4 size-6 -translate-y-1/2"
+        />
+        Instagram
+      </a>
+      <a
+        href="//x.com/mayonacalabs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="relative flex h-13 w-75 items-center justify-center bg-gray-50 p-4 text-2xl text-gray-950 shadow-md transition-transform hover:translate-x-1 hover:translate-y-1"
+      >
+        <XIcon class="absolute top-1/2 left-4 size-6 -translate-y-1/2" />
+        Twitter
+      </a>
+    </div>
+
+    <footer
+      class="flex w-full items-center justify-center bg-gray-950 p-5 text-center"
+    >
+      &copy; {year} Mayonaca Labs. All rights reserved.
+    </footer>
+  </div>
 </Layout>
