@@ -1,0 +1,14 @@
+[tools]
+node = "22"
+"npm:figlet" = "latest"
+pnpm = "10"
+
+[hooks]
+enter = """
+figlet mayonacalabs/landing
+echo "node: $(node --version)"
+echo "pnpm: v$(pnpm --version)"
+"""
+
+[settings]
+experimental = true
