@@ -47,6 +47,18 @@ const { title } = Astro.props
         ],
       }}
     />
+
+    {
+      import.meta.env.PROD && (
+        <script
+          is:inline
+          async
+          defer
+          data-website-id="a723d6c0-063b-4fee-aed9-72a10717e021"
+          src="https://u.iadw.in/bundle.js"
+        />
+      )
+    }
   </head>
   <body class="bg-mayoblue tracking-snug scroll-smooth font-serif text-gray-50">
     <slot />
